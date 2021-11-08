@@ -1,0 +1,54 @@
+[
+    {
+        "type": "Group",
+        "name": "backend",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Q7qXSRKc20tUydGw"
+    },
+    {
+        "type": "Group",
+        "name": "frontend",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "qyvdVIEDotQMK1L5"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\code\\bitpanda\\frontend\\bitpanda-frontend\\src\\app\\bitpanda",
+        "parent_id": "qyvdVIEDotQMK1L5",
+        "fsPath": "c:\\code\\bitpanda\\frontend\\bitpanda-frontend\\src\\app\\bitpanda",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ejwZIXrsxk8f9Pop"
+    },
+    {
+        "type": "File",
+        "name": "c:\\code\\bitpanda\\src\\csv-reader\\bitpanda.service.ts",
+        "parent_id": "Q7qXSRKc20tUydGw",
+        "fsPath": "c:\\code\\bitpanda\\src\\csv-reader\\bitpanda.service.ts",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "h9gcCFewEqmYKsxA"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\code\\bitpanda\\src\\api-reader",
+        "parent_id": "Q7qXSRKc20tUydGw",
+        "fsPath": "c:\\code\\bitpanda\\src\\api-reader",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ZnO7Df9Kmv40l58o"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\code\\bitpanda\\src\\csv-reader",
+        "parent_id": "Q7qXSRKc20tUydGw",
+        "fsPath": "c:\\code\\bitpanda\\src\\csv-reader",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "0u5FOs9AEYtH37De"
+    }
+]

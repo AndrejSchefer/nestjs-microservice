@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CsvReaderModule } from './csv-reader/csv-reader.module';
+import { ApiReaderModule } from './api-reader/api-reader.module';
 
 @Module({
-  imports: [CsvReaderModule],
+  imports: [CsvReaderModule, ApiReaderModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
