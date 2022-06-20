@@ -14,7 +14,7 @@ $ npm install
 $ cp .env.examples .env
 ```
 
-3. Open localhost [Localhost](http://localhost:8000/default){target="\_blank"}
+3. Open localhost [Localhost](http://localhost:8000/default).
 
 
 ## Running the app
