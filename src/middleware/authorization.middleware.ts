@@ -16,23 +16,18 @@ export class AuthorizationMiddleware implements NestMiddleware {
   ) {}
 
   public async use(req: Request, res: Response, next: () => void) {
-    const bearHeader = req.headers.authorization;
-
-    if (
-      typeof bearHeader !== 'undefined' &&
-      process.env.JWT_SECRET !== undefined
-    ) {
-      const bearer = bearHeader.split(':');
-      const bearerToken = bearer[1];
-
-      if (jwt.verify(bearerToken, process.env.JWT_SECRET) !== undefined) {
-        this.setUserID(req, bearerToken, next);
-      } else {
-        res.sendStatus(HTTP_ACCESS_FORBIDDEN);
-      }
-    } else {
-      res.sendStatus(HTTP_ACCESS_FORBIDDEN);
+    if (!req.headers.authorization || process.env.JWT_SECRET === '') {
+      return res.sendStatus(HTTP_ACCESS_FORBIDDEN);
     }
+
+    const bearer = req.headers.authorization.split(':');
+    const bearerToken = bearer[1];
+
+    if (jwt.verify(bearerToken, process.env.JWT_SECRET) === undefined) {
+      return res.sendStatus(HTTP_ACCESS_FORBIDDEN);
+    }
+
+    this.setUserID(req, bearerToken, next);
   }
 
   private async setUserID(req: Request, bearerToken: string, next: () => void) {

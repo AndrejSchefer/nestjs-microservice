@@ -16,7 +16,6 @@ import { DefaultModule } from './default/default.module';
   imports: [
     TypeOrmModule.forFeature([User]),
     ConfigModule.forRoot(),
-
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -34,15 +33,9 @@ import { DefaultModule } from './default/default.module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(AuthorizationMiddleware)
-      .exclude({
-        path: '',
-        method: RequestMethod.GET,
-      })
-      .forRoutes({
-        path: 'bank/transfares',
-        method: RequestMethod.GET,
-      });
+    consumer.apply(AuthorizationMiddleware).forRoutes({
+      path: 'default/with-authentication',
+      method: RequestMethod.GET,
+    });
   }
 }
