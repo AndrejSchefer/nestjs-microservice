@@ -47,6 +47,10 @@ spec:
                   name: db-user-pass
                   key: password
             - name: JWT_SECRET
-              value: "3gG5qg3tvffeZdefvfdieoZHGVJKR58Ihtgbrfiifikfiu4e993e8d9eidkrtf40dti67fvr6hubk12zDFDfvaBHVCECtggferzhbnhqt3t8r5tGFg5wb5gh2b1f2tr5edf55TGRtg5h2jJZDFHG25m14hHTgf5d21BHNf0vgh1JNM0Sb01vedf"
+              valueFrom:
+              secretKeyRef:
+                name: jwt-secret
+                key: jwt_secret
+
           ports:
             - containerPort: 4000
