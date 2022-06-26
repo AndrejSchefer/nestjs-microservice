@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: demo-nestjs-microservice-andrejschefer
+spec:
+  secretName: demo-nestjs-microservice-andrejschefer-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: demo-nestjs-microservice.andrejschefer.de
+  dnsNames:
+  - demo-nestjs-microservice.andrejschefer.de

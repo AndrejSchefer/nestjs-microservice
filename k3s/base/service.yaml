@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-nestjs-microservice-andrejschefer
+spec:
+  ports:
+  - name: nestjs-ms-port
+    port: 8888
+    targetPort: 8888
+  selector:
+    app: demo-nestjs-microservice-andrejschefer
+  type: ClusterIP

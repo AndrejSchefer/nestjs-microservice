@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-nestjs-microservice-andrejschefer
+  labels:
+    app: demo-nestjs-microservice-andrejschefer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-nestjs-microservice-andrejschefer
+  template:
+    metadata:
+      labels:
+        app: demo-nestjs-microservice-andrejschefer
+    spec:
+      serviceAccountName: azure-developer
+      imagePullSecrets:
+        - name: my-private-docker-registry
+      containers:
+        - name: demo-nestjs-microservice-andrejschefer
+          image: repo.andrejschefer.de/schefer/alpina/demo-nestjs-microservice-andrejschefer:latest
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: "8888"
+            - name: API_PORT
+              value: "4000"
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-user-pass
+                  key: db-host
+            - name: DB_NAME
+              valueFrom:
+              secretKeyRef:
+                name: db-user-pass
+                key: db-name
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-user-pass
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-user-pass
+                  key: password
+            - name: JWT_SECRET
+              value: "3gG5qg3tvffeZdefvfdieoZHGVJKR58Ihtgbrfiifikfiu4e993e8d9eidkrtf40dti67fvr6hubk12zDFDfvaBHVCECtggferzhbnhqt3t8r5tGFg5wb5gh2b1f2tr5edf55TGRtg5h2jJZDFHG25m14hHTgf5d21BHNf0vgh1JNM0Sb01vedf"
+          ports:
+            - containerPort: 4000

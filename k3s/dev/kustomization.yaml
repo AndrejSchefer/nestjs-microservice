@@ -1,0 +1,12 @@
+namespace: backend-msc
+
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - domain-tls-certificate.yaml
+  - sa.yaml
+  - role.yaml
+  - role-binding.yaml
+  - service.yaml
+  - ingress.yaml
+  - secret-registry.yaml

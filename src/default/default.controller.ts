@@ -2,11 +2,11 @@ import { Controller, Get, Query, Req } from '@nestjs/common';
 import { Request } from 'express';
 import { DefaultService } from './default.service';
 
-@Controller('default')
+@Controller()
 export class DefaultController {
   constructor(private defaultService: DefaultService) {}
 
-  @Get()
+  @Get('default')
   public async getData(@Query() params?) {
     const id = params.id ? params.id : 1;
     console.log(id);
